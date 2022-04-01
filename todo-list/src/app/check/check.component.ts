@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Task } from 'src/app/app.component';
 
 @Component({
   selector: 'app-check',
@@ -6,11 +7,10 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./check.component.css']
 })
 export class CheckComponent {
-  @Input() text?: string;
-  @Input() id?: number;  
+  @Input() task?: Task; 
   @Output() onDeleteTask = new EventEmitter();
 
   delete(): void{
-    this.onDeleteTask.emit(this.id as number);
+    this.onDeleteTask.emit(this.task!.id as number);
   }
 }

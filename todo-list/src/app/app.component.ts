@@ -4,14 +4,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  styles: [
-    `
-      .invisible {
-        display: none;
-      }
-    `,
-  ],
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
@@ -48,8 +41,9 @@ export class AppComponent {
     this.tasks = this.tasks.filter(task => task.id != id)
   }
 
-  visibility: boolean = true;
-  smena(): void{
+  visibility: boolean = false;
+
+  changingVisibility(): void{
     this.visibility = !this.visibility;
   }
 }

@@ -1,20 +1,21 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, NgModule } from '@angular/core';
+import { Task } from 'src/app/app.component';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
+
 export class ItemComponent{
-  @Input() text?: string;
-  @Input() id?: number;  
+  @Input() task?: Task;
   @Output() onDeleteTask = new EventEmitter();
   @Output() addCheckTask = new EventEmitter();
 
   addCheck(): void{
-    this.addCheckTask.emit(this.id as number);
+    this.addCheckTask.emit(this.task!.id as number);
   }
   delete(): void{
-    this.onDeleteTask.emit(this.id as number);
+    this.onDeleteTask.emit(this.task!.id as number);
   }
 }

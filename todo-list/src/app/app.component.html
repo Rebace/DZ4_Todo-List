@@ -1,11 +1,10 @@
 <div class="task"
-[ngClass]="{ invisible: !visibility }">
+*ngIf="!visibility">
   <p class="task__title">To do:</p>
   <div class="task__lists">
     <app-item class="task__list"
     *ngFor="let task of tasks"
-    [text]="task.name"
-    [id]="task.id"
+    [task]="task"
     (onDeleteTask)="onDelete($event)"
     (addCheckTask)="addCheckTask($event)"
     (addCheckTask)="onDelete($event)"
@@ -19,13 +18,12 @@
 </div>
 
 <div class="task"
-[ngClass]="{ invisible: visibility }">
-  <p class="task__title">To do check:</p>
+*ngIf="visibility">
+  <p class="task__title">Completed tasks:</p>
   <app-check class="task__list"
   *ngFor="let checkTask of checkTasks"
-  [text]="checkTask.name"
-  [id]="checkTask.id"
+  [task]="checkTask"
   (onDeleteTask)="onDeleteCheckTask($event)"
   ></app-check>
 </div>
-<button class="button" (click)="smena()">Смена</button>
+<button class="button" (click)="changingVisibility()">Смена</button>
