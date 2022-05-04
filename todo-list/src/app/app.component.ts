@@ -17,8 +17,8 @@ export class AppComponent {
   checkTasks: Array<Task> = []
 
   idTask = 3;
-  addTask(myForm: NgForm): void{
-    this.tasks.push({id: this.idTask, name: myForm.value.task});
+  addTask(Form: NgForm): void{
+    this.tasks.push({id: this.idTask, name: Form.value.task});
     this.idTask ++;
   }
 
@@ -43,7 +43,7 @@ export class AppComponent {
 
   visibility: boolean = false;
 
-  changingVisibility(): void{
+  changevisibility(): void{
     this.visibility = !this.visibility;
   }
 }
